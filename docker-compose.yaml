@@ -8,6 +8,7 @@ services:
     container_name: php_app
     volumes:
       - ./www:/var/www/html
+      - ./includes:/var/www/includes
     ports:
       - "8080:80"
     depends_on:

@@ -55,16 +55,16 @@ install_www: build_www
 	rm -rf $(TARGET_WWW)/*
 	cp -a www/* $(TARGET_WWW)/
 
-
 adminer-4.8.1.php:
 	wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 
-www/includes: adminer-4.8.1.php
-	mkdir -p www/includes
-	cp adminer-4.8.1.php www/includes/adminer-current
+includes_setup: adminer-4.8.1.php
+	mkdir -p includes
+	cp adminer-4.8.1.php includes/adminer-current
 
-up: build_www www/includes adminer-4.8.1.php
+up: build_www includes_setup
 	docker-compose up --build
+
 ##   clean               Cleanup generated files, etc., in the checked out git
 ##                       repo that are not under revsion control.
 .PHONY: clean
