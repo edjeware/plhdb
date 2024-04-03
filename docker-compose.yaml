@@ -7,7 +7,8 @@ services:
       dockerfile: Dockerfile
     container_name: php_app
     volumes:
-      - ./www:/var/www/html/public
+      - ./www:/var/www/html
+      - ./adminer:/var/www/html/adminer
     ports:
       - "8080:80"
     depends_on:
