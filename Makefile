@@ -58,8 +58,10 @@ install_www: build_www
 www/includes:
 	mkdir -p www/includes
 
-adminer-current: www/includes
+adminer-4.8.1.php:
 	wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php 
+
+adminer-current: www/includes adminer-4.8.1.php
 	ln -fs adminer-4.8.1.php www/includes/adminer-current
 
 up: adminer-current
