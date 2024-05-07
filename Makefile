@@ -72,3 +72,9 @@ clean:
 	rm -rf www
 	make -C db clean
 	make -C bin clean
+##   dclean              Clean docker images and volumes
+.PHONY: dclean
+dclean:
+	docker-compose down
+	docker-compose rm -v db
+	docker volume rm plhdb_postgres_data
