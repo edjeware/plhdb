@@ -1,34 +1,15 @@
-version: '3'
-
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: php_app
-    volumes:
-      - ./www:/var/www/html
-      - ./includes:/var/www/includes
-    ports:
-      - "8080:80"
-    depends_on:
-      - db
-    environment:
-      POSTGRES_HOST: db
-      POSTGRES_PORT: 5432
-      POSTGRES_DB: my_database
-      POSTGRES_USER: my_user
-      POSTGRES_PASSWORD: my_password
 
   db:
     image: postgres
     container_name: postgres_db
     environment:
-      POSTGRES_DB: my_database
-      POSTGRES_USER: my_user
+      POSTGRES_DB: postgres
+      POSTGRES_USER: plhdb_admin
       POSTGRES_PASSWORD: my_password
     volumes:
       - postgres_data:/var/lib/postgresql/data
+      - ./sql_init:/docker-entrypoint-initdb.d
 
 volumes:
   postgres_data:
