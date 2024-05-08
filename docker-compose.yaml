@@ -1,12 +1,14 @@
 services:
 
   db:
-    image: postgres
+    image: postgres:14.11
     container_name: postgres_db
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: plhdb_admin
       POSTGRES_PASSWORD: my_password
+    ports:
+      - 5444:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./sql_init:/docker-entrypoint-initdb.d
