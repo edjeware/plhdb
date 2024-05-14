@@ -41,7 +41,7 @@ www:
 	mkdir www
 
 .PHONY: build_www
-build_www: www static
+build_www: www
 	rm -rf www/*
 	cp -a static/* www/
 	cp -a adminer/production www/adminer
