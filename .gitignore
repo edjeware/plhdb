@@ -1,2 +1,3 @@
 # The built website
 /www/
+sql_init/data*.sql

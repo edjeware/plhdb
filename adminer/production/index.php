@@ -33,7 +33,7 @@ function adminer_object() {
 
     function credentials() {
       # Prevent user from supplying a different server.
-      return array('localhost', $_GET["username"], get_password());
+      return array(getenv('POSTGRES_HOST') !== false ? getenv('POSTGRES_HOST') : 'localhost', $_GET["username"], get_password());
     }
 
     function navigation($missing) {
