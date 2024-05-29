@@ -41,7 +41,7 @@ www:
 	mkdir www
 
 .PHONY: build_www
-build_www: www static
+build_www: www
 	rm -rf www/*
 	cp -a static/* www/
 	cp -a adminer/production www/adminer
@@ -55,6 +55,16 @@ install_www: build_www
 	rm -rf $(TARGET_WWW)/*
 	cp -a www/* $(TARGET_WWW)/
 
+adminer-4.8.1.php:
+	wget https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
+
+includes_setup: adminer-4.8.1.php
+	mkdir -p includes
+	cp adminer-4.8.1.php includes/adminer-current
+
+up: build_www includes_setup
+	docker-compose up --build
+
 ##   clean               Cleanup generated files, etc., in the checked out git
 ##                       repo that are not under revsion control.
 .PHONY: clean
@@ -62,3 +72,12 @@ clean:
 	rm -rf www
 	make -C db clean
 	make -C bin clean
+##   dclean              Clean docker images and volumes
+.PHONY: dclean
+dclean:
+	docker-compose down
+	docker-compose rm -v db
+	docker volume rm plhdb_postgres_data
+
+dpsql-user:
+	psql -d plhdb -U dummy_user -p 5444 -h localhost
