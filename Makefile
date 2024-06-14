@@ -44,8 +44,8 @@ www:
 build_www: www
 	rm -rf www/*
 	cp -a static/* www/
-	cp -a adminer/production www/adminer
-	cp -a adminer/demo www/
+##	cp -a adminer/production www/adminer
+##	cp -a adminer/demo www/
 
 ##   install_www         Install the website's files in the TARGET_WWW dir
 ##                       CAUTION: Deletes everything in TARGET_WWW before
@@ -62,7 +62,8 @@ includes_setup: adminer-4.8.1.php
 	mkdir -p includes
 	cp adminer-4.8.1.php includes/adminer-current
 
-up: build_www includes_setup
+up: build_www 
+## includes_setup
 	docker-compose up --build
 
 ##   clean               Cleanup generated files, etc., in the checked out git
