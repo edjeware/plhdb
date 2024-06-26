@@ -1,14 +1,14 @@
 @charset "utf-8";
 
-a {color: #62818a;;}
-a:hover {color: #62818a;}
+a {color: #839352;}
+a:hover {color: #839352; text-decoration: none;}
 
 
 body {
     background-color: #ffffff;
 	color: #585858;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size:8pt;
+	font-size: 12px;
 	padding-top: 10px;
 	background: url(../images/header_bg.jpg) repeat-x;
 	text-align: center;
@@ -17,22 +17,22 @@ body {
 
 h1 {
 	font-weight: normal;
-	font-size: 11pt;
+	font-size: 14px;
 	padding-bottom:10px;
 }
 h2 {
 	font-weight: bold;
-	font-size: 10pt;
+	font-size: 13px;
 	padding-bottom:5px;
 }
 h3 {
 	font-weight: bold;
-	font-size: 9pt;
+	font-size: 12px;
 	padding-bottom:2px;
 	}
 h4 {
 	font-weight:bold;
-	font-size: 8pt ;
+	font-size: 12px;
 }
 
 /* pagewrapper */
@@ -107,7 +107,6 @@ width:300px;
 	margin-top:2px;
 }
 .content p {
-	font-size:9pt;
 }
 
 
@@ -146,23 +145,14 @@ width:220px;
 	padding-top: 100px;
 	padding-bottom: 10px;
 	color: #000055;
-	font-size:8pt;
+	font-size:10px
 }
 
 .date{
-	font-size:				9pt;
+	font-size:				9px;
 	color:					#000055;
 	text-align: right;
 }
-
-a, a *
-{
-	color:	#0000ff;
-}
-
-
-
-
 
 .odd{
 	background-color: #ccffff;
