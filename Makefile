@@ -80,5 +80,6 @@ dclean:
 	docker-compose rm -v db
 	docker volume rm plhdb_postgres_data
 
+##   dpsql-user          From docker container, connect to the plhdb as dummy user
 dpsql-user:
 	psql -d plhdb -U dummy_user -p 5444 -h localhost
